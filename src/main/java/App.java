@@ -7,8 +7,9 @@ import java.util.Scanner;
  * Created by laptop on 17.11.17.
  */
 public class App {
-    static List<String> wierszX = Arrays.asList("x", "x", "x");
-    static List<String> wierszO = Arrays.asList("o", "o", "o");
+    static List<String> WinX = Arrays.asList("x", "x", "x");
+    static List<String> WinO = Arrays.asList("o", "o", "o");
+
 
     public static void main(String[] args) {
 
@@ -54,29 +55,42 @@ public class App {
             List<String> wiersz = new ArrayList<String>();
             List<String> kolumna = new ArrayList<String>();
             List<String> przekatna = new ArrayList<String>();
+            List<String> przekatna2 = new ArrayList<String>();
+            przekatna2.add(board[0][2]);
+            przekatna2.add(board[1][1]);
+            przekatna2.add(board[2][0]);
 
 
             for (int j = 0; j < 3; j++) {
                 wiersz.add(board[i][j]);
                 kolumna.add(board[j][i]);
-                kolumna.add(board[j][j]);
+                przekatna.add(board[j][j]);
+
             }
 
-            if (wiersz.equals(wierszO)) {
+            if (wiersz.equals(WinO)) {
+
                 return true;
-            } else if (wiersz.equals(wierszX)) {
+            } else if (wiersz.equals(WinX)) {
+
                 return true;
-            }
-            else if (kolumna.equals(wierszO)){
+            } else if (kolumna.equals(WinO)) {
+
                 return true;
-            }
-            else if (kolumna.equals(wierszX)){
+            } else if (kolumna.equals(WinX)) {
+
                 return true;
-            }
-            else if (przekatna.equals(wierszX)){
+            } else if (przekatna.equals(WinO)) {
+
                 return true;
-            }
-            else if (przekatna.equals(wierszO))
+            } else if (przekatna.equals(WinX)) {
+
+                return true;
+            } else if (przekatna2.equals(WinO)) {
+
+                return true;
+            } else if (przekatna2.equals(WinX))
+
                 return true;
         }
         return false;
